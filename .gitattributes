@@ -1,8 +1,4 @@
 # Auto detect text files and perform LF normalization
 * text=auto
 
-/envjarvis
-contacts.csv
-jarvis.db
-/engine/__pycache__
-/engine/cookies.json
+
