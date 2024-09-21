@@ -3,7 +3,8 @@ import sys
 import os
 
 # Add the parent directory of `www` (which is `ziggy`) to the system path
-sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 
 # To run Jarvis
 import multiprocessing
@@ -21,7 +22,7 @@ def startJarvis():
 def listenHotword():
         # Code for process 2
         print("Process 2 is running.")
-        from engine.features import hotword
+        from www.engine.features import hotword
         hotword()
 
 

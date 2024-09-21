@@ -42,22 +42,24 @@ $(document).ready(function(){
     });
 
 
-    // mic button click event
-    $("#MicBtn").click(function () { 
-        eel.playAssistantSound()
-        $("#oval").attr("hidden", true);    
+    // Mic button click event
+
+    $("#MicBtn").click(function () {
+
+        eel.playAssistantSound();  // Call via Eel
+        $("#oval").attr("hidden", true);     
         $("#siriwave").attr("hidden", false);  
-        eel.allCommands()()  
+        eel.allCommands()()
     });
 
 
+    // Keyup event handler for hotword detection
     function doc_keyUp(e) {
-        // this would test for whichever key is 40 (down arrow) and the ctrl key at the same time
-
+        
         if (e.key === 'j' && e.metaKey) {
-            eel.playAssistantSound()
-            $("#oval").attr("hidden", true);
-            $("#siriwave").attr("hidden", false);
+            eel.playAssistantSound();  // Call via Eel
+            $("#oval").attr("hidden", true); 
+            $("#siriwave").attr("hidden", false); 
             eel.allCommands()()
         }
     }

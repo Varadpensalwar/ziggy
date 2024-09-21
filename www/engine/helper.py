@@ -3,8 +3,10 @@ import re
 
 
 
-from .command import speak
-from .config import ASSISTANT_NAME
+from engine.command import speak  # Absolute import
+
+
+from www.engine.config import ASSISTANT_NAME
 
 
 

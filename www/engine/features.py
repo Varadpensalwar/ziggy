@@ -1,5 +1,31 @@
+import sys
 import os
-from pipes import quote
+
+# Add the "www" directory to sys.path
+sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))
+
+# Now try to import the engine module
+from engine.config import ASSISTANT_NAME
+
+import sys
+import os
+
+# Add the project root directory (ziggy) to sys.path
+sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
+
+# Now try to import from www.engine
+from engine.helper import extract_yt_term, remove_words  # Relative to the added path
+
+
+
+
+
+from engine.command import speak
+from hugchat import hugchat
+import os
+import shlex
+quote = shlex.quote
+
 import re
 import struct
 import subprocess
@@ -8,7 +34,7 @@ from playsound import playsound
 import eel
 import pyautogui
 from engine.command import speak
-from engine.config import ASSISTANT_NAME
+
 import pywhatkit as kit
 import sqlite3
 import webbrowser
@@ -20,7 +46,8 @@ import sqlite3
 
 
 
-from .helper import extract_yt_term, remove_words  # Relative import
+from www.engine.helper import extract_yt_term, remove_words  # Absolute import
+
 
 
 
@@ -30,11 +57,14 @@ from .helper import extract_yt_term, remove_words  # Relative import
 
 # Playing assiatnt sound function
 
+import eel
+from playsound import playsound
+
 @eel.expose
 def playAssistantSound():
     music_dir = "www/assets/audio/start_sound.mp3"
-
     playsound(music_dir)
+
 
 
 def openCommand(query):
@@ -203,3 +233,4 @@ def whatsApp(mobile_no, message, flag, name):
     time.sleep(1)
     pyautogui.hotkey('enter')
     speak(jarvis_message)
+
